@@ -1,6 +1,5 @@
 FROM jenkins/jenkins:lts
 
-
 # Skip install plugins wizard
 ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
 
@@ -10,5 +9,3 @@ ws-cleanup pipeline-stage-view pam-auth pipeline-github-lib \
 matrix-auth ssh build-timeout github-branch-source  ssh-slaves \
 email-ext antisamy-markup-formatter workflow-aggregator git ldap authorize-project \
 configuration-as-code
-
-
