@@ -1,7 +1,8 @@
 FROM jenkins/jenkins:lts
 
 
-
+# Skip install plugins wizard
+ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
 
 # Install init plugins
 RUN jenkins-plugin-cli --plugins docker-workflow cloudbees-folder timestamper \
