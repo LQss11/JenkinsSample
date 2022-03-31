@@ -12,5 +12,17 @@ To create a container using this image we will need to ensure that some env vari
 
 To setup env vars on docker run:
 ```sh
-docker run -it --rm -e VAR=value jenkinssample:latest bash
+docker run -it --rm -p 8080:8080 -e VAR=value jenkinssample:latest bash
 ```
+
+
+### WIP
+- [ ] Work with 1 directory to accept argument whether admin or anonymous to chose on which base image to start
+- [ ] Github actions pipeline -> push to dockerhub on success
+
+
+## Image variants
+Some image variants ideas:
+
+- [ ] Implement Configurations with JCasC plugin
+- [ ] Setup Image to use kubernetes key to run kubectl commands
