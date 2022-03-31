@@ -1,0 +1,25 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Docker Login
+      env:
+        DOCKER_USER: ${{secrets.DOCKER_HUB_USERNAME}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_HUB_ACCESS_TOKEN}}
+      run: |
+        echo $DOCKER_PASSWORD | docker login --username $DOCKER_USER --password-stdin
+    - name: Docker Build
+      run: docker build --tag lqss/jenkins:anonymous --file ./anonymous/Dockerfile .
+      
+    - name: Docker Push
+      run: docker push lqss/jenkins:anonymous
