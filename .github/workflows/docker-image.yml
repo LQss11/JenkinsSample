@@ -15,7 +15,7 @@ jobs:
     - name: Docker Login
       env:
         DOCKER_USER: ${{secrets.DOCKER_HUB_USERNAME}}
-        DOCKER_PASSWORD: ${{secrets.DOCKER_HUB_ACCESS_TOKEN}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_HUB_PASSWORD}}
       run: |
         echo $DOCKER_PASSWORD | docker login --username $DOCKER_USER --password-stdin
     - name: Docker Build
