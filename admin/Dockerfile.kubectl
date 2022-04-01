@@ -9,5 +9,3 @@ RUN curl -L https://dl.k8s.io/release/${KUBERNETES_RELEASE}/bin/linux/amd64/kube
 USER jenkins
 
 COPY /groovy/load-kubeconfig.groovy /usr/share/jenkins/ref/init.groovy.d/
-
-# https://stackoverflow.com/questions/33613868/how-to-store-secret-text-or-file-using-groovy
