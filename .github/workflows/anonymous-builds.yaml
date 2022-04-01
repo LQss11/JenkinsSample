@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: anonymous Docker Images BUILD/PUSH
 
 on:
   push:
