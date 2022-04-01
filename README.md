@@ -17,8 +17,9 @@ docker run -it --rm -p 8080:8080 -e VAR=value jenkinssample:latest bash
 
 
 ### WIP
-- [ ] Work with 1 directory to accept argument whether admin or anonymous to chose on which base image to start
-- [ ] Github actions pipeline -> push to dockerhub on success
+- [X] Work with 1 directory to accept argument whether admin or anonymous to chose on which base image to start
+- [X] Github actions pipeline -> push to dockerhub on success
+- [ ] Put relative files together to avoid having multiple files in same dir (Avoid confusion)
 
 
 ## Image variants
