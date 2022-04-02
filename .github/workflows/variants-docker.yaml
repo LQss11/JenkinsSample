@@ -1,5 +1,6 @@
 name: Variants Docker Images BUILD/PUSH
-
+# Refer to this for multi jobs build push
+# https://stackoverflow.com/a/65369271/13541620
 on:
   push:
     branches: [main]
@@ -18,20 +19,18 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      # Build docker images    
       - name: Docker Build jenkins variants images
         run: ./build-scripts/variants-docker-build.sh
-
-  # Push docker images
-  docker-push:
-    needs: docker-build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      # - name: Docker Login
-      #   env:
-      #     DOCKER_USER: ${{ secrets.DOCKER_HUB_USERNAME }}
-      #     DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
-      #   run: |
-      #     docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      # Push docker images  
       - name: Docker Push jenkins images
-        run: ./build-scripts/variants-docker-push.sh
+        run: ./build-scripts/variants-docker-push.sh        
+
+  # # Push docker images
+  # docker-push:
+  #   needs: docker-build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Docker Push jenkins images
+  #       run: ./build-scripts/variants-docker-push.sh
