@@ -8,11 +8,10 @@ done
 #echo  ${VARIANTS[1]}
 for VARIANT in ${VARIANTS[@]}; do
     echo "BUILDING lqss/jenkins:admin-$VARIANT"
-    docker build --tag lqss/jenkins:admin-$VARIANT --file ./variants/$VARIANT/Dockerfile ./variants/$VARIANT
+    echo docker build --tag lqss/jenkins:admin-$VARIANT --file ./variants/$VARIANT/Dockerfile ./variants/$VARIANT
 
     echo "BUILDING lqss/jenkins:anonymous-$VARIANT"
     sed -i "s/admin/anonymous/g" ./variants/$VARIANT/Dockerfile
-    sleep 2
-    docker build --tag lqss/jenkins:anonymous --file ./variants/$VARIANT/Dockerfile ./variants/$VARIANT
+    echo docker build --tag lqss/jenkins:anonymous-$VARIANT --file ./variants/$VARIANT/Dockerfile ./variants/$VARIANT
     sed -i "s/anonymous/admin/g" ./variants/$VARIANT/Dockerfile
 done
