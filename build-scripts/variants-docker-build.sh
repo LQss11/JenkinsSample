@@ -1,4 +1,11 @@
 #!/bin/bash
+
+echo "Building base images..."
+echo "BUILDING lqss/jenkins:admin"
+docker build --tag lqss/jenkins:admin --file ./Dockerfile.admin .
+echo "BUILDING lqss/jenkins:anonymous"
+docker build --tag lqss/jenkins:anonymous --file ./Dockerfile.anonymous .
+
 # This command will allow pipeline from running this script to prevent permission denied output
 # git update-index --chmod=+x .\build-scripts\anonymous-docker-build.sh
 for VARIANT in ./variants/*; do
