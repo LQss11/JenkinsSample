@@ -12,3 +12,12 @@ for VARIANT in ${VARIANTS[@]}; do
     echo "PUSHING lqss/jenkins:anonymous-$VARIANT"
     docker push lqss/jenkins:anonymous-$VARIANT
 done
+
+echo "Pushing base images..."
+echo "PUSHING lqss/jenkins:admin"
+docker push lqss/jenkins:admin
+echo "PUSHING lqss/jenkins:anonymous"
+docker push lqss/jenkins:anonymous
+echo "PUSHING lqss/jenkins:latest"
+docker image tag lqss/jenkins:admin lqss/jenkins:latest
+docker push lqss/jenkins:latest
