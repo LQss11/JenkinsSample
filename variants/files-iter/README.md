@@ -1,0 +1,1 @@
+docker run -it --rm -v ${pwd}/variants/files-iter/secret-files/:/secret-files lqss/jenkins:admin-files-iter
