@@ -3,7 +3,7 @@
 # Remove back to line
 sed 's/\r//g' $1
 # Import packages
-cat >/usr/share/jenkins/ref/init.groovy.d/test.groovy <<EOF
+cat >/usr/share/jenkins/ref/init.groovy.d/credentials.groovy <<EOF
 import com.cloudbees.plugins.credentials.impl.*
 import com.cloudbees.plugins.credentials.*
 import com.cloudbees.plugins.credentials.domains.*
@@ -28,5 +28,5 @@ password=$(echo $word | cut -d "." -f4)
 echo "Credentials $object = (Credentials) new UsernamePasswordCredentialsImpl(CredentialsScope.GLOBAL,\"$id\", \"Description\", \"$username\", \"$password\")
 SystemCredentialsProvider.getInstance().getStore().addCredentials(Domain.global(), $object)
 
-">>/usr/share/jenkins/ref/init.groovy.d/test.groovy
+">>/usr/share/jenkins/ref/init.groovy.d/credentials.groovy
 done
