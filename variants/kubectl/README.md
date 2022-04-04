@@ -4,7 +4,7 @@ Kubectl variant is the image variant of `lqss/jenkins` which allows a user to lo
 # Quick start
 You can start the container by running the following command:
 ```sh
-docker run -it --rm -p 9999:8080 -v <path-to-kubeconfig>:/kube/config lqss/jenkins:anonymous-kubectl
+docker run -d -p 8080:8080 -v <path-to-kubeconfig>:/kube/config lqss/jenkins:anonymous-kubectl
 ```
 >Make sure to load the kubeconfig inside the container using bind mount with -v on `/kube/config` inside the container.
 
