@@ -1,0 +1,1 @@
+docker run -it --rm -p 8080:8080 -v ${pwd}/variants/secret-file/file.key:/secret  lqss/jenkins:admin-secret-file
