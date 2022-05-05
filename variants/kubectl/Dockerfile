@@ -5,7 +5,7 @@ RUN jenkins-plugin-cli --plugins kubernetes-cli
 # Download Kubernetes release
 ARG KUBERNETES_RELEASE=v1.23.3
 USER root
+RUN mkdir -p /root/.kube
 RUN curl -L https://dl.k8s.io/release/${KUBERNETES_RELEASE}/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl  && chmod +x /usr/local/bin/kubectl
 USER jenkins
-RUN mkdir -p /root/.kube
 COPY /load-kubeconfig.groovy /usr/share/jenkins/ref/init.groovy.d/
